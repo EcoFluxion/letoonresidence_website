@@ -39,7 +39,7 @@
 body{background:var(--pg);color:var(--tx);font-family:'Montserrat',sans-serif;}
 a{color:var(--acc);}
 /* ---- blog nav ---- */
-.bnav{background:#ffffff;backdrop-filter:saturate(140%) blur(6px);box-shadow:0 2px 18px rgba(0,0,0,.08);padding:.55rem 0;}
+.bnav{position:fixed!important;top:0;left:0;right:0;z-index:1031;background:#ffffff!important;backdrop-filter:saturate(140%) blur(6px);box-shadow:0 2px 18px rgba(0,0,0,.08)!important;padding:.55rem 0;}
 .bnav .navbar-brand{display:flex;align-items:center;gap:.55rem;font-family:'Playfair Display',serif;font-weight:700;color:#202020;font-size:1.05rem;}
 .bnav .navbar-brand img{height:40px;border-radius:0;}
 .bnav .nav-link{color:#333333;font-weight:600;font-size:.95rem;padding:.4rem .8rem;border-radius:8px;transition:.2s;}
@@ -111,7 +111,27 @@ a{color:var(--acc);}
 .bfoot li{margin-bottom:.5rem;font-size:.92rem;}
 .bfoot .fcontact i{color:var(--acc);width:18px;}
 .bfoot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:2rem;padding-top:1.2rem;text-align:center;font-size:.85rem;color:rgba(255,255,255,.6);}
-@media(max-width:600px){.article-hero{padding:2rem 1.3rem;}}
+.hero-credit{font-size:.74rem;color:var(--txm);margin:-1.2rem 0 1.4rem;text-align:right;}
+.hero-credit a{color:var(--txm);}
+.article-backtop{display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem;padding:.42rem .95rem;border:1px solid var(--bd);border-radius:50px;color:var(--acc);font-weight:600;font-size:.85rem;text-decoration:none;transition:.2s;}
+.article-backtop:hover{background:var(--acc);color:#fff;border-color:var(--acc);}
+.article-hero{min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;background-size:cover;background-position:center;}
+.post-pager{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2.8rem 0 1rem;}
+.post-pager a{display:flex;flex-direction:column;gap:.3rem;border:1px solid var(--bd);border-radius:12px;padding:1rem 1.2rem;text-decoration:none;background:var(--card);transition:.2s;min-width:0;}
+.post-pager a:hover{border-color:var(--acc);transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,0,0,.08);}
+.post-pager .lbl{font-size:.78rem;color:var(--acc);font-weight:700;}
+.post-pager .ttl{font-family:'Playfair Display',serif;color:var(--hd);font-weight:700;font-size:.98rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.post-pager .next{text-align:right;align-items:flex-end;}
+.related{margin:3rem 0 1rem;}
+.related h3{font-family:'Playfair Display',serif;font-weight:700;font-size:1.3rem;color:var(--hd);margin-bottom:1rem;}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1rem;}
+.related-card{border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:var(--card);text-decoration:none;display:flex;flex-direction:column;transition:.2s;}
+.related-card:hover{border-color:var(--acc);transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,.08);}
+.related-card .rc-top{height:100px;background-size:cover;background-position:center;background-color:var(--card2);}
+.related-card .rc-body{padding:.8rem .9rem;}
+.related-card .rc-cat{font-size:.67rem;text-transform:uppercase;letter-spacing:.8px;color:var(--acc);font-weight:700;}
+.related-card .rc-ttl{font-family:'Playfair Display',serif;color:var(--hd);font-weight:600;font-size:.9rem;line-height:1.3;margin-top:.25rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+@media(max-width:600px){.article-hero{padding:2rem 1.3rem;min-height:230px;}.post-pager{grid-template-columns:1fr;}}
 </style>
   <script type="application/ld+json">
 {
@@ -234,11 +254,13 @@ a{color:var(--acc);}
     </div>
   </nav>
   <main class="article-wrap">
+    <a href="/blog/en/" class="article-backtop"><i class="bi bi-arrow-left"></i> All Articles</a>
     <nav class="breadcrumb-nav"><a href="/">Letoon Residence</a> / <a href="/blog/en/">Blog</a> / Choosing a Sea-View Apartment: 10 Critical Factors to Consider</nav>
-    <div class="article-hero">
+    <div class="article-hero" style="background:linear-gradient(165deg,rgba(0,0,0,.20),rgba(0,0,0,.66)),url('/blog/img/deniz-manzarali-daire-secerken-dikkat-edilecekler.jpg') center/cover;">
       <div class="cat">Buyer Guide</div>
       <h1>Choosing a Sea-View Apartment: 10 Critical Factors to Consider</h1>
     </div>
+    <p class="hero-credit">Image: Robert Lamb · CC BY-SA 2.0 · <a href="https://commons.wikimedia.org/wiki/File:View_of_the_sea_from_the_balcony_of_the_Turner_Gallery_-_geograph.org.uk_-_6242230.jpg" target="_blank" rel="noopener nofollow">Wikimedia Commons</a></p>
     <p class="article-sub">Within the same building, the real difference between two apartments is often the quality of the view. This guide walks you through facade, floor and balcony optimization when choosing a sea-view home.</p>
     <div class="article-meta">
       <span><i class="bi bi-clock"></i> 9 min read</span>
@@ -269,6 +291,8 @@ a{color:var(--acc);}
     </article>
     <div class="takeaways"><h3>Key takeaways</h3><ul><li>Treat the view as a measurable technical specification, not a slogan; facade, floor and balcony together create the value gap.</li><li>Measure the facade angle with a compass and visit the unit both morning and evening; the ideal direction balances sea and sun.</li><li>Confirm the zoning of front-row plots and the distance to the sea to guarantee the view; a close position lowers the risk.</li><li>In floor selection, &#39;the higher the better&#39; does not always hold; mid floors often balance closeness with an open view.</li><li>Deep, curved balconies and glass railings deliver a panoramic angle; rooftop terrace apartments are the peak.</li><li>Calculate the view&#39;s ROI: extra rental and resale premium can amortize the price gap within a few years.</li></ul></div>
     <div class="faq-wrap"><h3>Frequently Asked Questions</h3><details class="faq-item"><summary>Which facade orientation is best for a sea-view apartment?</summary><div class="faq-a">The ideal facade is where the direction that faces the sea overlaps with the direction that catches balanced sun. Along the Aegean and Mediterranean coast, west and south-west facades are usually preferred, because they collect light through the day and deliver the sunset directly over the water. Due south gives the longest exposure but carries a summer heat risk. For the best decision, measure the facade angle with a compass and view the unit at different times.</div></details><details class="faq-item"><summary>How do I prevent a building on the empty plot in front from blocking my view?</summary><div class="faq-a">For a real guarantee, before buying confirm the zoning status, construction permit and maximum building height of the front-row plots with the municipality or developer. The strongest natural safeguards are a position very close to the sea, construction bans along the coastal setback line, and non-buildable buffers such as a park or road. The narrower the strip between your unit and the sea, the less physical room there is to block your view.</div></details><details class="faq-item"><summary>Which floor is best for a sea view?</summary><div class="faq-a">There is no single correct floor; the best one stays above the tallest obstacle in the front row. If there is a two-storey structure or mature palms in front of you, a clear view usually needs the third floor or above. Very high floors give a wide horizon but increase the perceived distance to the sea; mid floors often best balance the sense of closeness with an open view. Rooftop terrace apartments offer the widest panoramic view.</div></details><details class="faq-item"><summary>Does balcony design really affect view quality?</summary><div class="faq-a">Yes, the balcony is the frame of the view and its geometry directly shapes your field of vision. Deep, curved balconies wrap the horizon toward the sides for a panoramic angle, while sufficient depth creates a seating area that turns the view into a lived-in space. Glass or open metal railings do not cut the sea view even when you are seated, whereas solid concrete parapets reveal it only when you stand. That is why balcony geometry sits at the centre of view-maximizing design.</div></details></div>
+    <section class="related"><h3>Related Articles</h3><div class="related-grid"><a class="related-card" href="/blog/en/denize-yakin-ev-almak-avantajlar-dikkat-edilecekler.html"><div class="rc-top" style="background-image:linear-gradient(165deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url('/blog/img/denize-yakin-ev-almak-avantajlar-dikkat-edilecekler.jpg');"></div><div class="rc-body"><div class="rc-cat">Buyer Guide</div><div class="rc-ttl">Buying a Home Near the Sea: Benefits and Key Things to Check First</div></div></a><a class="related-card" href="/blog/en/tatil-evi-mi-yatirim-mi-sahil-konutu-karari.html"><div class="rc-top" style="background-image:linear-gradient(165deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url('/blog/img/tatil-evi-mi-yatirim-mi-sahil-konutu-karari.jpg');"></div><div class="rc-body"><div class="rc-cat">Buyer Guide</div><div class="rc-ttl">Holiday Home or Investment? How to Decide on a Coastal Property</div></div></a><a class="related-card" href="/blog/en/altinkum-didim-yasam-rehberi-plajlar-ulasim-sosyal-hayat.html"><div class="rc-top" style="background-image:linear-gradient(165deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url('/blog/img/altinkum-didim-yasam-rehberi-plajlar-ulasim-sosyal-hayat.jpg');"></div><div class="rc-body"><div class="rc-cat">Area Guide</div><div class="rc-ttl">Living in Altinkum Didim: Beaches, Transport, Social Life and Climate</div></div></a></div></section>
+    <nav class="post-pager" aria-label="Post navigation"><a class="prev" href="/blog/en/altinkum-didim-yasam-rehberi-plajlar-ulasim-sosyal-hayat.html"><span class="lbl">← Previous</span><span class="ttl">Living in Altinkum Didim: Beaches, Transport, Social Life and Climate</span></a><a class="next" href="/blog/en/denize-yakin-ev-almak-avantajlar-dikkat-edilecekler.html"><span class="lbl">Next →</span><span class="ttl">Buying a Home Near the Sea: Benefits and Key Things to Check First</span></a></nav>
     <div class="cta-box"><h3>Letoon Residence</h3><p>Honest, practical guides to investing, coastal living and buying seaside property in Didim Altınkum.</p><a class="btn" href="/#contact">Get in Touch</a></div>
     <a href="/blog/en/" class="article-back"><i class="bi bi-arrow-left"></i> All articles</a>
   </main>

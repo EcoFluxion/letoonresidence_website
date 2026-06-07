@@ -39,7 +39,7 @@
 body{background:var(--pg);color:var(--tx);font-family:'Montserrat',sans-serif;}
 a{color:var(--acc);}
 /* ---- blog nav ---- */
-.bnav{background:#ffffff;backdrop-filter:saturate(140%) blur(6px);box-shadow:0 2px 18px rgba(0,0,0,.08);padding:.55rem 0;}
+.bnav{position:fixed!important;top:0;left:0;right:0;z-index:1031;background:#ffffff!important;backdrop-filter:saturate(140%) blur(6px);box-shadow:0 2px 18px rgba(0,0,0,.08)!important;padding:.55rem 0;}
 .bnav .navbar-brand{display:flex;align-items:center;gap:.55rem;font-family:'Playfair Display',serif;font-weight:700;color:#202020;font-size:1.05rem;}
 .bnav .navbar-brand img{height:40px;border-radius:0;}
 .bnav .nav-link{color:#333333;font-weight:600;font-size:.95rem;padding:.4rem .8rem;border-radius:8px;transition:.2s;}
@@ -111,7 +111,27 @@ a{color:var(--acc);}
 .bfoot li{margin-bottom:.5rem;font-size:.92rem;}
 .bfoot .fcontact i{color:var(--acc);width:18px;}
 .bfoot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:2rem;padding-top:1.2rem;text-align:center;font-size:.85rem;color:rgba(255,255,255,.6);}
-@media(max-width:600px){.article-hero{padding:2rem 1.3rem;}}
+.hero-credit{font-size:.74rem;color:var(--txm);margin:-1.2rem 0 1.4rem;text-align:right;}
+.hero-credit a{color:var(--txm);}
+.article-backtop{display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem;padding:.42rem .95rem;border:1px solid var(--bd);border-radius:50px;color:var(--acc);font-weight:600;font-size:.85rem;text-decoration:none;transition:.2s;}
+.article-backtop:hover{background:var(--acc);color:#fff;border-color:var(--acc);}
+.article-hero{min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;background-size:cover;background-position:center;}
+.post-pager{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2.8rem 0 1rem;}
+.post-pager a{display:flex;flex-direction:column;gap:.3rem;border:1px solid var(--bd);border-radius:12px;padding:1rem 1.2rem;text-decoration:none;background:var(--card);transition:.2s;min-width:0;}
+.post-pager a:hover{border-color:var(--acc);transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,0,0,.08);}
+.post-pager .lbl{font-size:.78rem;color:var(--acc);font-weight:700;}
+.post-pager .ttl{font-family:'Playfair Display',serif;color:var(--hd);font-weight:700;font-size:.98rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.post-pager .next{text-align:right;align-items:flex-end;}
+.related{margin:3rem 0 1rem;}
+.related h3{font-family:'Playfair Display',serif;font-weight:700;font-size:1.3rem;color:var(--hd);margin-bottom:1rem;}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1rem;}
+.related-card{border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:var(--card);text-decoration:none;display:flex;flex-direction:column;transition:.2s;}
+.related-card:hover{border-color:var(--acc);transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,.08);}
+.related-card .rc-top{height:100px;background-size:cover;background-position:center;background-color:var(--card2);}
+.related-card .rc-body{padding:.8rem .9rem;}
+.related-card .rc-cat{font-size:.67rem;text-transform:uppercase;letter-spacing:.8px;color:var(--acc);font-weight:700;}
+.related-card .rc-ttl{font-family:'Playfair Display',serif;color:var(--hd);font-weight:600;font-size:.9rem;line-height:1.3;margin-top:.25rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+@media(max-width:600px){.article-hero{padding:2rem 1.3rem;min-height:230px;}.post-pager{grid-template-columns:1fr;}}
 </style>
   <script type="application/ld+json">
 {
@@ -234,11 +254,13 @@ a{color:var(--acc);}
     </div>
   </nav>
   <main class="article-wrap">
+    <a href="/blog/" class="article-backtop"><i class="bi bi-arrow-left"></i> Tüm Yazılar</a>
     <nav class="breadcrumb-nav"><a href="/">Letoon Residence</a> / <a href="/blog/">Blog</a> / Didim Altınkum Gayrimenkul Yatırımı 2026: Fiyatlar, Bölgeler ve Getiri Rehberi</nav>
-    <div class="article-hero">
+    <div class="article-hero" style="background:linear-gradient(165deg,rgba(0,0,0,.20),rgba(0,0,0,.66)),url('/blog/img/didim-altinkum-gayrimenkul-yatirim-rehberi-2026.jpg') center/cover;">
       <div class="cat">Yatırım Rehberi</div>
       <h1>Didim Altınkum Gayrimenkul Yatırımı 2026: Fiyatlar, Bölgeler ve Getiri Rehberi</h1>
     </div>
+    <p class="hero-credit">Görsel: Robert Rimell · CC BY-SA 2.0 · <a href="https://commons.wikimedia.org/wiki/File:New_Residential_Development_in_Hayes_(3)_-_geograph.org.uk_-_2311557.jpg" target="_blank" rel="noopener nofollow">Wikimedia Commons</a></p>
     <p class="article-sub">Ege&#39;nin yükselen tatil ve emeklilik destinasyonunda 2026 fiyatları, en doğru bölgeleri ve gerçekçi getiri beklentilerini rakamlarla ele alan kapsamlı bir yatırımcı rehberi.</p>
     <div class="article-meta">
       <span><i class="bi bi-clock"></i> 11 dk okuma</span>
@@ -265,6 +287,8 @@ a{color:var(--acc);}
     </article>
     <div class="takeaways"><h3>Öne çıkanlar</h3><ul><li>2026&#39;da Didim Altınkum&#39;da yeni ve nitelikli sahil dairelerinde ortalama fiyatlar yaklaşık 5,5 milyon TL bandında; ancak rakam konuma, kata ve manzaraya göre belirgin değişir.</li><li>Denize mesafe en güçlü değer çarpanı: 50-200 metre bandındaki projeler hem fiyat hem yeniden satış likiditesinde avantajlı.</li><li>Kira getirisini her zaman net ve yıllık hesaplayın; kısa dönem tatil kirası yüksek görünse de komisyon, temizlik ve boş günler net rakamı düşürür.</li><li>Sınırlı sahil arzı ile turizm-emeklilik kaynaklı yapısal talep, doğru konumda orta-uzun vadeli değer artışı tezini destekler.</li><li>Yabancı alıcılar için vergi numarası, DAB, tapu ve imar kontrolü gibi adımları bir uzmanla teyit etmek riskleri büyük ölçüde azaltır.</li><li>Doğru proje seçiminde fiyatın yanı sıra aidat, inşaat kalitesi, donatılar, geliştirici referansı ve çıkış stratejisini birlikte değerlendirin.</li></ul></div>
     <div class="faq-wrap"><h3>Sıkça Sorulan Sorular</h3><details class="faq-item"><summary>Didim Altınkum&#39;da yatırım için ortalama daire fiyatı ne kadar?</summary><div class="faq-a">2026 itibarıyla denize yakın, yeni ve nitelikli 2+1 dairelerde ortalama fiyatlar yaklaşık 5,5 milyon TL bandında seyrediyor. Ancak bu yalnızca bir referans noktası: denize uzak eski stokta fiyatlar belirgin biçimde düşerken, deniz manzaralı ve çatı terası gibi lüks tipolojilerde rakam ciddi şekilde yukarı çıkıyor. Sağlıklı kıyas için metrekare birim fiyatını, aidatı ve donatıları birlikte değerlendirmek gerekir.</div></details><details class="faq-item"><summary>Didim&#39;de kira getirisi ne kadar ve kısa mı uzun dönem mi daha mantıklı?</summary><div class="faq-a">İki model farklı çalışır. Kısa dönem (tatil) kirası yaz aylarında yüksek gecelik gelir üretir ama sezonludur ve operasyon maliyeti yüksektir. Uzun dönem kira daha düşük ama öngörülebilirdir. Doğru seçim amacınıza bağlı: sahile yakın, havuzlu, manzaralı bir daire her iki modeli de esnek uygulayabildiği için toplam getiride genellikle avantajlıdır. Getiriyi her zaman net ve yıllık hesaplayın.</div></details><details class="faq-item"><summary>Denize yakın daire almak gerçekten fark yaratır mı?</summary><div class="faq-a">Evet, denize mesafe en güçlü değer çarpanlarından biridir. Sahile 50-200 metre bandındaki projeler hem daha yüksek kira talebine hem de daha güçlü yeniden satış likiditesine sahiptir; çünkü bu arz fiziksel olarak sınırlıdır. Daha içerideki daireler uygun görünse de manzara, talep ve likidite avantajından yoksun kalabilir. Letoon Residence&#39;ın denize 50 metre konumu, bu birinci hat avantajına somut bir örnektir.</div></details><details class="faq-item"><summary>Yabancıyım, Didim&#39;de mülk alabilir miyim ve süreç nasıl işliyor?</summary><div class="faq-a">Evet, Didim yabancı alıcılar için Ege&#39;nin en erişilebilir bölgelerinden biridir. Süreç genel olarak vergi numarası alma, banka hesabı açma, tapu ve imar kontrolü, gerekiyorsa değerleme raporu ve Tapu Müdürlüğü&#39;nde devir adımlarından oluşur. Döviz girişinin DAB ile belgelenmesi önemlidir. Mevzuat değişebileceği için güncel koşulları bir uzmana ve güvenilir bir yerel danışmana teyit ettirmek en güvenli yoldur.</div></details></div>
+    <section class="related"><h3>İlgili Yazılar</h3><div class="related-grid"><a class="related-card" href="/blog/didim-yazlik-kira-getirisi-airbnb-potansiyeli.html"><div class="rc-top" style="background-image:linear-gradient(165deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url('/blog/img/didim-yazlik-kira-getirisi-airbnb-potansiyeli.jpg');"></div><div class="rc-body"><div class="rc-cat">Yatırım Rehberi</div><div class="rc-ttl">Didim&#39;de Yazlık Kira Getirisi: Sezonluk mu Yıllık mı? Airbnb Potansiyeli 2026</div></div></a><a class="related-card" href="/blog/altinkum-didim-yasam-rehberi-plajlar-ulasim-sosyal-hayat.html"><div class="rc-top" style="background-image:linear-gradient(165deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url('/blog/img/altinkum-didim-yasam-rehberi-plajlar-ulasim-sosyal-hayat.jpg');"></div><div class="rc-body"><div class="rc-cat">Bölge Rehberi</div><div class="rc-ttl">Altınkum Didim Yaşam Rehberi: Plajlar, Ulaşım, Sosyal Hayat ve İklim</div></div></a><a class="related-card" href="/blog/deniz-manzarali-daire-secerken-dikkat-edilecekler.html"><div class="rc-top" style="background-image:linear-gradient(165deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url('/blog/img/deniz-manzarali-daire-secerken-dikkat-edilecekler.jpg');"></div><div class="rc-body"><div class="rc-cat">Alıcı Rehberi</div><div class="rc-ttl">Deniz Manzaralı Daire Seçerken Nelere Dikkat Edilmeli? 10 Kritik Kriter</div></div></a></div></section>
+    <nav class="post-pager" aria-label="Yazı gezinmesi"><a class="prev" href="/blog/denize-yakin-ev-almak-avantajlar-dikkat-edilecekler.html"><span class="lbl">← Önceki Yazı</span><span class="ttl">Denize Yakın Ev Almak: Avantajları ve Satın Almadan Önce Dikkat Edilmesi Gerekenler</span></a><a class="next" href="/blog/didim-yazlik-kira-getirisi-airbnb-potansiyeli.html"><span class="lbl">Sonraki Yazı →</span><span class="ttl">Didim&#39;de Yazlık Kira Getirisi: Sezonluk mu Yıllık mı? Airbnb Potansiyeli 2026</span></a></nav>
     <div class="cta-box"><h3>Letoon Residence</h3><p>Didim Altınkum’da yatırım, sahil yaşamı ve deniz kenarı konut almak üzerine dürüst ve pratik rehberler.</p><a class="btn" href="/#contact">İletişime Geçin</a></div>
     <a href="/blog/" class="article-back"><i class="bi bi-arrow-left"></i> Tüm yazılar</a>
   </main>

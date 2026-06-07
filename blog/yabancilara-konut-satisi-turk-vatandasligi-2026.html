@@ -39,7 +39,7 @@
 body{background:var(--pg);color:var(--tx);font-family:'Montserrat',sans-serif;}
 a{color:var(--acc);}
 /* ---- blog nav ---- */
-.bnav{background:#ffffff;backdrop-filter:saturate(140%) blur(6px);box-shadow:0 2px 18px rgba(0,0,0,.08);padding:.55rem 0;}
+.bnav{position:fixed!important;top:0;left:0;right:0;z-index:1031;background:#ffffff!important;backdrop-filter:saturate(140%) blur(6px);box-shadow:0 2px 18px rgba(0,0,0,.08)!important;padding:.55rem 0;}
 .bnav .navbar-brand{display:flex;align-items:center;gap:.55rem;font-family:'Playfair Display',serif;font-weight:700;color:#202020;font-size:1.05rem;}
 .bnav .navbar-brand img{height:40px;border-radius:0;}
 .bnav .nav-link{color:#333333;font-weight:600;font-size:.95rem;padding:.4rem .8rem;border-radius:8px;transition:.2s;}
@@ -111,7 +111,27 @@ a{color:var(--acc);}
 .bfoot li{margin-bottom:.5rem;font-size:.92rem;}
 .bfoot .fcontact i{color:var(--acc);width:18px;}
 .bfoot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:2rem;padding-top:1.2rem;text-align:center;font-size:.85rem;color:rgba(255,255,255,.6);}
-@media(max-width:600px){.article-hero{padding:2rem 1.3rem;}}
+.hero-credit{font-size:.74rem;color:var(--txm);margin:-1.2rem 0 1.4rem;text-align:right;}
+.hero-credit a{color:var(--txm);}
+.article-backtop{display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem;padding:.42rem .95rem;border:1px solid var(--bd);border-radius:50px;color:var(--acc);font-weight:600;font-size:.85rem;text-decoration:none;transition:.2s;}
+.article-backtop:hover{background:var(--acc);color:#fff;border-color:var(--acc);}
+.article-hero{min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;background-size:cover;background-position:center;}
+.post-pager{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2.8rem 0 1rem;}
+.post-pager a{display:flex;flex-direction:column;gap:.3rem;border:1px solid var(--bd);border-radius:12px;padding:1rem 1.2rem;text-decoration:none;background:var(--card);transition:.2s;min-width:0;}
+.post-pager a:hover{border-color:var(--acc);transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,0,0,.08);}
+.post-pager .lbl{font-size:.78rem;color:var(--acc);font-weight:700;}
+.post-pager .ttl{font-family:'Playfair Display',serif;color:var(--hd);font-weight:700;font-size:.98rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.post-pager .next{text-align:right;align-items:flex-end;}
+.related{margin:3rem 0 1rem;}
+.related h3{font-family:'Playfair Display',serif;font-weight:700;font-size:1.3rem;color:var(--hd);margin-bottom:1rem;}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1rem;}
+.related-card{border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:var(--card);text-decoration:none;display:flex;flex-direction:column;transition:.2s;}
+.related-card:hover{border-color:var(--acc);transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,.08);}
+.related-card .rc-top{height:100px;background-size:cover;background-position:center;background-color:var(--card2);}
+.related-card .rc-body{padding:.8rem .9rem;}
+.related-card .rc-cat{font-size:.67rem;text-transform:uppercase;letter-spacing:.8px;color:var(--acc);font-weight:700;}
+.related-card .rc-ttl{font-family:'Playfair Display',serif;color:var(--hd);font-weight:600;font-size:.9rem;line-height:1.3;margin-top:.25rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+@media(max-width:600px){.article-hero{padding:2rem 1.3rem;min-height:230px;}.post-pager{grid-template-columns:1fr;}}
 </style>
   <script type="application/ld+json">
 {
@@ -234,11 +254,13 @@ a{color:var(--acc);}
     </div>
   </nav>
   <main class="article-wrap">
+    <a href="/blog/" class="article-backtop"><i class="bi bi-arrow-left"></i> Tüm Yazılar</a>
     <nav class="breadcrumb-nav"><a href="/">Letoon Residence</a> / <a href="/blog/">Blog</a> / Yabancılara Konut Satışı ve Gayrimenkulle Türk Vatandaşlığı 2026: Şartlar ve Süreç</nav>
-    <div class="article-hero">
+    <div class="article-hero" style="background:linear-gradient(165deg,rgba(0,0,0,.20),rgba(0,0,0,.66)),url('/blog/img/yabancilara-konut-satisi-turk-vatandasligi-2026.jpg') center/cover;">
       <div class="cat">Yabancı Alıcı Rehberi</div>
       <h1>Yabancılara Konut Satışı ve Gayrimenkulle Türk Vatandaşlığı 2026: Şartlar ve Süreç</h1>
     </div>
+    <p class="hero-credit">Görsel: Press Information Department · Public domain · <a href="https://commons.wikimedia.org/wiki/File:Sheikh_Hasina_Ashrayan-2_Project_House_Deeds_and_Keys_Handover_Ceremony_2022-04-26_(PID-0023442).jpg" target="_blank" rel="noopener nofollow">Wikimedia Commons</a></p>
     <p class="article-sub">400.000 dolarlık vatandaşlık eşiğinden KDV muafiyetine, tapu randevusundan döviz transferi belgesine kadar yabancı alıcının 2026&#39;da bilmesi gereken her şey; Didim Altınkum örneğiyle adım adım.</p>
     <div class="article-meta">
       <span><i class="bi bi-clock"></i> 11 dk okuma</span>
@@ -265,6 +287,8 @@ a{color:var(--acc);}
     </article>
     <div class="takeaways"><h3>Öne çıkanlar</h3><ul><li>Yabancılar Türkiye&#39;de Tapu Kanunu m.35 uyarınca mülk alabilir; mütekabiliyet kalkmış, kişi başı 30 hektar sınırı geçerlidir.</li><li>Gayrimenkulle vatandaşlık için eşik en az 400.000 USD&#39;dir ve tapuya 3 yıl satmama şerhi konur.</li><li>KDV istisnası; ilk satış, yurt dışından döviz getirme ve 1 yıl elde tutma koşullarıyla yüzde 1-20 arası vergiyi sıfırlar.</li><li>Tüm ödeme yurt dışından döviz olarak gelip bankada bozdurulmalı; nakit veya yurt içi transfer hem istisnayı hem vatandaşlığı riske atar.</li><li>SPK değerleme raporu, askeri izin sorgusu, vergi numarası ve yeminli tercüman tapu sürecinin zorunlu adımlarıdır.</li><li>Didim Altınkum&#39;da talebin yaklaşık yüzde 60&#39;ı yabancıdır; erişilebilir fiyat, 400.000 dolarlık eşiği geniş ve deniz manzaralı bir konutta karşılamayı mümkün kılar.</li></ul></div>
     <div class="faq-wrap"><h3>Sıkça Sorulan Sorular</h3><details class="faq-item"><summary>Yabancı olarak Türkiye&#39;de ev almak için oturma izni veya Türk vatandaşlığı şart mı?</summary><div class="faq-a">Hayır. Mülk satın almak için ön koşul olarak oturma izni veya vatandaşlık gerekmez; pasaport ve Türk vergi numarasıyla tapu işlemi yapabilirsiniz. Vatandaşlık ve oturma izni, tam tersine, en az 400.000 USD&#39;lik bir alımdan sonra talep edebileceğiniz sonuçlardır. Yani önce mülkü alır, ardından isterseniz vatandaşlık sürecini başlatırsınız.</div></details><details class="faq-item"><summary>400.000 dolarlık eşiği birden fazla mülkle karşılayabilir miyim?</summary><div class="faq-a">Evet. Tek bir konut bu tutara ulaşmıyorsa, toplam değeri 400.000 USD&#39;ye eşit veya üzerinde olan birden fazla taşınmaz alarak da eşiği karşılayabilirsiniz. Her bir taşınmaz için SPK lisanslı değerleme raporu alınır ve hepsine 3 yıllık satmama şerhi konulur. Önemli olan, toplam değerin döviz transfer belgeleriyle eksiksiz kanıtlanmasıdır.</div></details><details class="faq-item"><summary>KDV istisnasından yararlanırken üç yıl içinde mülkü satarsam ne olur?</summary><div class="faq-a">KDV istisnasının kendi koşulu mülkü en az bir yıl elde tutmaktır; bu süre dolmadan satarsanız istisna nedeniyle ödenmeyen KDV gecikme faiziyle birlikte tahsil edilir. Vatandaşlık için konulan ayrı 3 yıllık şerh ise farklı bir kuraldır ve süre dolmadan devir tapuda mümkün olmaz. İki süreyi karıştırmamak ve hangi avantajı kullandığınıza göre süreyi planlamak önemlidir.</div></details><details class="faq-item"><summary>Didim Altınkum yabancı yatırımcı için neden mantıklı bir seçim?</summary><div class="faq-a">Çünkü Didim, yüksek yabancı talebini erişilebilir fiyatla birleştirir. Bölge talebinin yaklaşık yüzde 60&#39;ı yabancı alıcılardan gelir, bu da güçlü bir ikincil satış ve kiralama pazarı demektir. Aynı 400.000 dolarlık bütçeyle burada denize çok yakın, geniş ve deniz manzaralı bir konut alınabilir. Letoon Residence gibi denize sadece 50 metre mesafedeki havuzlu ve modern projeler, ilk satış statüsü sayesinde KDV avantajını ve vatandaşlık eşiğini tek bir alımda bir araya getirir.</div></details></div>
+    <section class="related"><h3>İlgili Yazılar</h3><div class="related-grid"><a class="related-card" href="/blog/altinkum-didim-yasam-rehberi-plajlar-ulasim-sosyal-hayat.html"><div class="rc-top" style="background-image:linear-gradient(165deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url('/blog/img/altinkum-didim-yasam-rehberi-plajlar-ulasim-sosyal-hayat.jpg');"></div><div class="rc-body"><div class="rc-cat">Bölge Rehberi</div><div class="rc-ttl">Altınkum Didim Yaşam Rehberi: Plajlar, Ulaşım, Sosyal Hayat ve İklim</div></div></a><a class="related-card" href="/blog/deniz-manzarali-daire-secerken-dikkat-edilecekler.html"><div class="rc-top" style="background-image:linear-gradient(165deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url('/blog/img/deniz-manzarali-daire-secerken-dikkat-edilecekler.jpg');"></div><div class="rc-body"><div class="rc-cat">Alıcı Rehberi</div><div class="rc-ttl">Deniz Manzaralı Daire Seçerken Nelere Dikkat Edilmeli? 10 Kritik Kriter</div></div></a><a class="related-card" href="/blog/denize-yakin-ev-almak-avantajlar-dikkat-edilecekler.html"><div class="rc-top" style="background-image:linear-gradient(165deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url('/blog/img/denize-yakin-ev-almak-avantajlar-dikkat-edilecekler.jpg');"></div><div class="rc-body"><div class="rc-cat">Alıcı Rehberi</div><div class="rc-ttl">Denize Yakın Ev Almak: Avantajları ve Satın Almadan Önce Dikkat Edilmesi Gerekenler</div></div></a></div></section>
+    <nav class="post-pager" aria-label="Yazı gezinmesi"><a class="prev" href="/blog/tatil-evi-mi-yatirim-mi-sahil-konutu-karari.html"><span class="lbl">← Önceki Yazı</span><span class="ttl">Tatil Evi mi, Yatırım mı? Sahil Konutu Alırken Doğru Kararı Verme Rehberi</span></a><a class="next" href="/blog/"><span class="lbl">Blog →</span><span class="ttl">Tüm Yazılar</span></a></nav>
     <div class="cta-box"><h3>Letoon Residence</h3><p>Didim Altınkum’da yatırım, sahil yaşamı ve deniz kenarı konut almak üzerine dürüst ve pratik rehberler.</p><a class="btn" href="/#contact">İletişime Geçin</a></div>
     <a href="/blog/" class="article-back"><i class="bi bi-arrow-left"></i> Tüm yazılar</a>
   </main>

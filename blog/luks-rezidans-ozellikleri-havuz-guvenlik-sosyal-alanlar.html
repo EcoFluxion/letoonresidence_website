@@ -39,7 +39,7 @@
 body{background:var(--pg);color:var(--tx);font-family:'Montserrat',sans-serif;}
 a{color:var(--acc);}
 /* ---- blog nav ---- */
-.bnav{background:#ffffff;backdrop-filter:saturate(140%) blur(6px);box-shadow:0 2px 18px rgba(0,0,0,.08);padding:.55rem 0;}
+.bnav{position:fixed!important;top:0;left:0;right:0;z-index:1031;background:#ffffff!important;backdrop-filter:saturate(140%) blur(6px);box-shadow:0 2px 18px rgba(0,0,0,.08)!important;padding:.55rem 0;}
 .bnav .navbar-brand{display:flex;align-items:center;gap:.55rem;font-family:'Playfair Display',serif;font-weight:700;color:#202020;font-size:1.05rem;}
 .bnav .navbar-brand img{height:40px;border-radius:0;}
 .bnav .nav-link{color:#333333;font-weight:600;font-size:.95rem;padding:.4rem .8rem;border-radius:8px;transition:.2s;}
@@ -111,7 +111,27 @@ a{color:var(--acc);}
 .bfoot li{margin-bottom:.5rem;font-size:.92rem;}
 .bfoot .fcontact i{color:var(--acc);width:18px;}
 .bfoot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:2rem;padding-top:1.2rem;text-align:center;font-size:.85rem;color:rgba(255,255,255,.6);}
-@media(max-width:600px){.article-hero{padding:2rem 1.3rem;}}
+.hero-credit{font-size:.74rem;color:var(--txm);margin:-1.2rem 0 1.4rem;text-align:right;}
+.hero-credit a{color:var(--txm);}
+.article-backtop{display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem;padding:.42rem .95rem;border:1px solid var(--bd);border-radius:50px;color:var(--acc);font-weight:600;font-size:.85rem;text-decoration:none;transition:.2s;}
+.article-backtop:hover{background:var(--acc);color:#fff;border-color:var(--acc);}
+.article-hero{min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;background-size:cover;background-position:center;}
+.post-pager{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2.8rem 0 1rem;}
+.post-pager a{display:flex;flex-direction:column;gap:.3rem;border:1px solid var(--bd);border-radius:12px;padding:1rem 1.2rem;text-decoration:none;background:var(--card);transition:.2s;min-width:0;}
+.post-pager a:hover{border-color:var(--acc);transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,0,0,.08);}
+.post-pager .lbl{font-size:.78rem;color:var(--acc);font-weight:700;}
+.post-pager .ttl{font-family:'Playfair Display',serif;color:var(--hd);font-weight:700;font-size:.98rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.post-pager .next{text-align:right;align-items:flex-end;}
+.related{margin:3rem 0 1rem;}
+.related h3{font-family:'Playfair Display',serif;font-weight:700;font-size:1.3rem;color:var(--hd);margin-bottom:1rem;}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1rem;}
+.related-card{border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:var(--card);text-decoration:none;display:flex;flex-direction:column;transition:.2s;}
+.related-card:hover{border-color:var(--acc);transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,.08);}
+.related-card .rc-top{height:100px;background-size:cover;background-position:center;background-color:var(--card2);}
+.related-card .rc-body{padding:.8rem .9rem;}
+.related-card .rc-cat{font-size:.67rem;text-transform:uppercase;letter-spacing:.8px;color:var(--acc);font-weight:700;}
+.related-card .rc-ttl{font-family:'Playfair Display',serif;color:var(--hd);font-weight:600;font-size:.9rem;line-height:1.3;margin-top:.25rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+@media(max-width:600px){.article-hero{padding:2rem 1.3rem;min-height:230px;}.post-pager{grid-template-columns:1fr;}}
 </style>
   <script type="application/ld+json">
 {
@@ -234,11 +254,13 @@ a{color:var(--acc);}
     </div>
   </nav>
   <main class="article-wrap">
+    <a href="/blog/" class="article-backtop"><i class="bi bi-arrow-left"></i> Tüm Yazılar</a>
     <nav class="breadcrumb-nav"><a href="/">Letoon Residence</a> / <a href="/blog/">Blog</a> / Lüks Rezidans Özellikleri: Havuz, Güvenlik, Sosyal Alanlar ve Mimari Detaylar</nav>
-    <div class="article-hero">
+    <div class="article-hero" style="background:linear-gradient(165deg,rgba(0,0,0,.20),rgba(0,0,0,.66)),url('/blog/img/luks-rezidans-ozellikleri-havuz-guvenlik-sosyal-alanlar.jpg') center/cover;">
       <div class="cat">Konut Tipleri</div>
       <h1>Lüks Rezidans Özellikleri: Havuz, Güvenlik, Sosyal Alanlar ve Mimari Detaylar</h1>
     </div>
+    <p class="hero-credit">Görsel: Purbachibarua1234567 · CC BY-SA 4.0 · <a href="https://commons.wikimedia.org/wiki/File:Swimming_pool_in_an_apartment_in_Guwahati.jpg" target="_blank" rel="noopener nofollow">Wikimedia Commons</a></p>
     <p class="article-sub">Bir rezidansı gerçekten lüks yapan şey, parlak bir lobi değil; havuzdan güvenliğe, balkon derinliğinden malzeme kalitesine kadar uzanan ölçülebilir özellikler bütünüdür. İşte alıcı olarak satın almadan önce kontrol etmeniz gereken her şey.</p>
     <div class="article-meta">
       <span><i class="bi bi-clock"></i> 9 dk okuma</span>
@@ -265,6 +287,8 @@ a{color:var(--acc);}
     </article>
     <div class="takeaways"><h3>Öne çıkanlar</h3><ul><li>Lüks rezidans, tek bir gösterişli detay değil; havuz, güvenlik, sosyal alan, mimari, iç mekan ve konumun bütünüdür.</li><li>Havuzun değeri görünmeyen filtrasyon ve bakım sisteminde; güvenliğin değeri ise çok katmanlı ve kesintisiz olmasındadır.</li><li>Sosyal alanları &#39;kim kullanacak, ne sıklıkla, kim bakacak&#39; sorularıyla değerlendirin; kullanılabilirlik varlıktan önemlidir.</li><li>Geniş ve derin balkonlar yaşam alanını dışarı taşır; iç mekanda asıl fark ısı-ses yalıtımı ve işçilik kalitesindedir.</li><li>Konum, listelenmeyen ama en belirleyici özelliktir; denize yakınlık hem konforu hem yeniden satış değerini destekler.</li><li>Satın almadan önce aidat, yönetim sürekliliği ve geliştirici referanslarını mutlaka sorgulayın ve projeyi yerinde görün.</li></ul></div>
     <div class="faq-wrap"><h3>Sıkça Sorulan Sorular</h3><details class="faq-item"><summary>Bir rezidansta havuzun iyi olup olmadığını nasıl anlarım?</summary><div class="faq-a">Su yüzeyinin görüntüsüne değil, görünmeyen sisteme bakın. İyi bir havuzda etkili filtrasyon ve sirkülasyon, otomatik kimyasal dozajlama, düzenli bakım planı ve sahil bölgelerinde tuza-güneşe dayanıklı kaplama bulunur. Ayrıca güvenlik için kademeli giriş ya da çocuk havuzu, kaymaz çevre kaplaması ve yeterli derinlik işaretlemesi olup olmadığını sorun.</div></details><details class="faq-item"><summary>7/24 güvenlik tam olarak neyi kapsamalı?</summary><div class="faq-a">Tek bir bekçiden fazlasını. Gerçek bir güvenlik kurgusu çok katmanlıdır: çevre kontrolü, kartlı veya kodlu erişim yönetimi, yeterli süre kayıt tutan CCTV, asansör ve otopark denetimi, yangın-duman algılama ve bunları sürekli izleyen personel. Sahil bölgelerinde kış aylarında boş kalan daireler için sürekli denetim ayrıca su kaçağı ve arıza gibi sorunları da erken yakalar.</div></details><details class="faq-item"><summary>Geniş balkon neden bu kadar önemli ve nasıl değerlendirmeliyim?</summary><div class="faq-a">Çünkü geniş ve derin bir balkon, dairenin kullanılabilir hacmini fiilen büyütür ve yaşam alanını dışarıya taşır. Değerlendirirken balkonun derinliğine (bir masa-sandalye takımı sığıyor mu), manzara açısına, korkuluk ve zemin malzemesine, gölgeleme imkânına bakın. Kavisli ya da geniş balkonlar düz-dar balkonlara göre daha panoramik bir manzara hissi verir.</div></details><details class="faq-item"><summary>Lüks bir daire satın almadan önce en sık yapılan hatalar nelerdir?</summary><div class="faq-a">Sadece metrekare ve fiyata bakıp kaliteyi ihmal etmek, aidat ile yönetim giderlerini hesaba katmamak, yalnızca lansman görsellerine güvenmek ve teslim sonrası bakım sürekliliğini sorgulamamak. İyi yönetilen havuz, peyzaj ve güvenlik bir maliyet gerektirir; bu maliyetin nasıl karşılandığını bilmek lüksün sürdürülebilirliğini gösterir. Mümkünse projeyi yerinde görün ve geliştiricinin referanslarını araştırın.</div></details></div>
+    <section class="related"><h3>İlgili Yazılar</h3><div class="related-grid"><a class="related-card" href="/blog/rezidans-nedir-daire-villa-farki.html"><div class="rc-top" style="background-image:linear-gradient(165deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url('/blog/img/rezidans-nedir-daire-villa-farki.jpg');"></div><div class="rc-body"><div class="rc-cat">Konut Tipleri</div><div class="rc-ttl">Rezidans Nedir? Daire ve Villadan Farkı, Avantajları ve Yatırım Değeri</div></div></a><a class="related-card" href="/blog/altinkum-didim-yasam-rehberi-plajlar-ulasim-sosyal-hayat.html"><div class="rc-top" style="background-image:linear-gradient(165deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url('/blog/img/altinkum-didim-yasam-rehberi-plajlar-ulasim-sosyal-hayat.jpg');"></div><div class="rc-body"><div class="rc-cat">Bölge Rehberi</div><div class="rc-ttl">Altınkum Didim Yaşam Rehberi: Plajlar, Ulaşım, Sosyal Hayat ve İklim</div></div></a><a class="related-card" href="/blog/deniz-manzarali-daire-secerken-dikkat-edilecekler.html"><div class="rc-top" style="background-image:linear-gradient(165deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url('/blog/img/deniz-manzarali-daire-secerken-dikkat-edilecekler.jpg');"></div><div class="rc-body"><div class="rc-cat">Alıcı Rehberi</div><div class="rc-ttl">Deniz Manzaralı Daire Seçerken Nelere Dikkat Edilmeli? 10 Kritik Kriter</div></div></a></div></section>
+    <nav class="post-pager" aria-label="Yazı gezinmesi"><a class="prev" href="/blog/ege-kiyilarinda-emeklilik-sahil-yasami-rehberi.html"><span class="lbl">← Önceki Yazı</span><span class="ttl">Ege Kıyılarında Emeklilik: Didim Altınkum&#39;da Sahil Yaşamı Rehberi</span></a><a class="next" href="/blog/rezidans-nedir-daire-villa-farki.html"><span class="lbl">Sonraki Yazı →</span><span class="ttl">Rezidans Nedir? Daire ve Villadan Farkı, Avantajları ve Yatırım Değeri</span></a></nav>
     <div class="cta-box"><h3>Letoon Residence</h3><p>Didim Altınkum’da yatırım, sahil yaşamı ve deniz kenarı konut almak üzerine dürüst ve pratik rehberler.</p><a class="btn" href="/#contact">İletişime Geçin</a></div>
     <a href="/blog/" class="article-back"><i class="bi bi-arrow-left"></i> Tüm yazılar</a>
   </main>

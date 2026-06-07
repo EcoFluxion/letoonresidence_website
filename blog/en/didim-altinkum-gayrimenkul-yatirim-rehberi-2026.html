@@ -39,7 +39,7 @@
 body{background:var(--pg);color:var(--tx);font-family:'Montserrat',sans-serif;}
 a{color:var(--acc);}
 /* ---- blog nav ---- */
-.bnav{background:#ffffff;backdrop-filter:saturate(140%) blur(6px);box-shadow:0 2px 18px rgba(0,0,0,.08);padding:.55rem 0;}
+.bnav{position:fixed!important;top:0;left:0;right:0;z-index:1031;background:#ffffff!important;backdrop-filter:saturate(140%) blur(6px);box-shadow:0 2px 18px rgba(0,0,0,.08)!important;padding:.55rem 0;}
 .bnav .navbar-brand{display:flex;align-items:center;gap:.55rem;font-family:'Playfair Display',serif;font-weight:700;color:#202020;font-size:1.05rem;}
 .bnav .navbar-brand img{height:40px;border-radius:0;}
 .bnav .nav-link{color:#333333;font-weight:600;font-size:.95rem;padding:.4rem .8rem;border-radius:8px;transition:.2s;}
@@ -111,7 +111,27 @@ a{color:var(--acc);}
 .bfoot li{margin-bottom:.5rem;font-size:.92rem;}
 .bfoot .fcontact i{color:var(--acc);width:18px;}
 .bfoot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:2rem;padding-top:1.2rem;text-align:center;font-size:.85rem;color:rgba(255,255,255,.6);}
-@media(max-width:600px){.article-hero{padding:2rem 1.3rem;}}
+.hero-credit{font-size:.74rem;color:var(--txm);margin:-1.2rem 0 1.4rem;text-align:right;}
+.hero-credit a{color:var(--txm);}
+.article-backtop{display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem;padding:.42rem .95rem;border:1px solid var(--bd);border-radius:50px;color:var(--acc);font-weight:600;font-size:.85rem;text-decoration:none;transition:.2s;}
+.article-backtop:hover{background:var(--acc);color:#fff;border-color:var(--acc);}
+.article-hero{min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;background-size:cover;background-position:center;}
+.post-pager{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2.8rem 0 1rem;}
+.post-pager a{display:flex;flex-direction:column;gap:.3rem;border:1px solid var(--bd);border-radius:12px;padding:1rem 1.2rem;text-decoration:none;background:var(--card);transition:.2s;min-width:0;}
+.post-pager a:hover{border-color:var(--acc);transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,0,0,.08);}
+.post-pager .lbl{font-size:.78rem;color:var(--acc);font-weight:700;}
+.post-pager .ttl{font-family:'Playfair Display',serif;color:var(--hd);font-weight:700;font-size:.98rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.post-pager .next{text-align:right;align-items:flex-end;}
+.related{margin:3rem 0 1rem;}
+.related h3{font-family:'Playfair Display',serif;font-weight:700;font-size:1.3rem;color:var(--hd);margin-bottom:1rem;}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1rem;}
+.related-card{border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:var(--card);text-decoration:none;display:flex;flex-direction:column;transition:.2s;}
+.related-card:hover{border-color:var(--acc);transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,.08);}
+.related-card .rc-top{height:100px;background-size:cover;background-position:center;background-color:var(--card2);}
+.related-card .rc-body{padding:.8rem .9rem;}
+.related-card .rc-cat{font-size:.67rem;text-transform:uppercase;letter-spacing:.8px;color:var(--acc);font-weight:700;}
+.related-card .rc-ttl{font-family:'Playfair Display',serif;color:var(--hd);font-weight:600;font-size:.9rem;line-height:1.3;margin-top:.25rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+@media(max-width:600px){.article-hero{padding:2rem 1.3rem;min-height:230px;}.post-pager{grid-template-columns:1fr;}}
 </style>
   <script type="application/ld+json">
 {
@@ -234,11 +254,13 @@ a{color:var(--acc);}
     </div>
   </nav>
   <main class="article-wrap">
+    <a href="/blog/en/" class="article-backtop"><i class="bi bi-arrow-left"></i> All Articles</a>
     <nav class="breadcrumb-nav"><a href="/">Letoon Residence</a> / <a href="/blog/en/">Blog</a> / Investing in Didim Altinkum Real Estate in 2026: Prices, Areas and Returns</nav>
-    <div class="article-hero">
+    <div class="article-hero" style="background:linear-gradient(165deg,rgba(0,0,0,.20),rgba(0,0,0,.66)),url('/blog/img/didim-altinkum-gayrimenkul-yatirim-rehberi-2026.jpg') center/cover;">
       <div class="cat">Investment Guide</div>
       <h1>Investing in Didim Altinkum Real Estate in 2026: Prices, Areas and Returns</h1>
     </div>
+    <p class="hero-credit">Image: Robert Rimell · CC BY-SA 2.0 · <a href="https://commons.wikimedia.org/wiki/File:New_Residential_Development_in_Hayes_(3)_-_geograph.org.uk_-_2311557.jpg" target="_blank" rel="noopener nofollow">Wikimedia Commons</a></p>
     <p class="article-sub">A data-driven investor&#39;s guide to 2026 prices, the right neighbourhoods and realistic return expectations in one of the Aegean&#39;s fastest-rising holiday and retirement destinations.</p>
     <div class="article-meta">
       <span><i class="bi bi-clock"></i> 11 min read</span>
@@ -265,6 +287,8 @@ a{color:var(--acc);}
     </article>
     <div class="takeaways"><h3>Key takeaways</h3><ul><li>In 2026, average prices for new, quality seafront flats in Didim Altinkum sit around 5.5 million TL, though the figure shifts markedly with location, floor and view.</li><li>Distance to the sea is the strongest value multiplier: projects in the 50-200 metre band benefit on both price and resale liquidity.</li><li>Always calculate rental yield net and annual; short-term holiday rent can look high, but commissions, cleaning and empty nights lower the net figure.</li><li>Limited coastal supply combined with structural tourism and retirement demand supports a medium-to-long-term appreciation thesis in the right location.</li><li>For foreign buyers, confirming steps such as the tax number, the DAB certificate, the title deed and zoning checks with a specialist greatly reduces risk.</li><li>When choosing a project, weigh service charge, build quality, amenities, developer references and exit strategy alongside the price.</li></ul></div>
     <div class="faq-wrap"><h3>Frequently Asked Questions</h3><details class="faq-item"><summary>What is the average apartment price for investment in Didim Altinkum?</summary><div class="faq-a">As of 2026, average prices for new, quality two-bedroom flats close to the sea sit around 5.5 million TL. That is only a reference point, however: prices fall noticeably for older stock set back from the shore, while luxury typologies such as sea-view or rooftop-terrace units rise considerably. For a sound comparison, weigh the price per square metre together with the service charge and the amenities on offer.</div></details><details class="faq-item"><summary>What rental yield can I expect in Didim, and is short- or long-term letting better?</summary><div class="faq-a">The two models work differently. Short-term (holiday) letting generates high nightly income in summer but is seasonal and operationally costly. Long-term letting is lower but predictable. The right choice depends on your goal: a flat near the sea with a pool and a view can flex between both models, which usually gives it a total-return advantage. Always calculate yield on a net and annual basis.</div></details><details class="faq-item"><summary>Does buying close to the sea really make a difference?</summary><div class="faq-a">Yes, distance to the sea is one of the strongest value multipliers. Projects in the 50-200 metre band enjoy both higher rental demand and stronger resale liquidity, because this supply is physically limited. Flats further inland may look affordable but can lack the advantage of view, demand and liquidity. Letoon Residence&#39;s position 50 metres from the sea is a concrete example of this front-line advantage.</div></details><details class="faq-item"><summary>I am a foreigner; can I buy property in Didim, and how does the process work?</summary><div class="faq-a">Yes, Didim is one of the most accessible areas in the Aegean for foreign buyers. The process generally involves obtaining a tax number, opening a bank account, checking the title deed and zoning, providing a valuation report where required, and completing the transfer at the Land Registry. Documenting the currency inflow with a DAB certificate matters. Because regulations can change, the safest route is to confirm current conditions with a specialist and a trustworthy local advisor.</div></details></div>
+    <section class="related"><h3>Related Articles</h3><div class="related-grid"><a class="related-card" href="/blog/en/didim-yazlik-kira-getirisi-airbnb-potansiyeli.html"><div class="rc-top" style="background-image:linear-gradient(165deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url('/blog/img/didim-yazlik-kira-getirisi-airbnb-potansiyeli.jpg');"></div><div class="rc-body"><div class="rc-cat">Investment Guide</div><div class="rc-ttl">Holiday Rental Income in Didim: Seasonal vs Annual &amp; Airbnb Potential</div></div></a><a class="related-card" href="/blog/en/altinkum-didim-yasam-rehberi-plajlar-ulasim-sosyal-hayat.html"><div class="rc-top" style="background-image:linear-gradient(165deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url('/blog/img/altinkum-didim-yasam-rehberi-plajlar-ulasim-sosyal-hayat.jpg');"></div><div class="rc-body"><div class="rc-cat">Area Guide</div><div class="rc-ttl">Living in Altinkum Didim: Beaches, Transport, Social Life and Climate</div></div></a><a class="related-card" href="/blog/en/deniz-manzarali-daire-secerken-dikkat-edilecekler.html"><div class="rc-top" style="background-image:linear-gradient(165deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url('/blog/img/deniz-manzarali-daire-secerken-dikkat-edilecekler.jpg');"></div><div class="rc-body"><div class="rc-cat">Buyer Guide</div><div class="rc-ttl">Choosing a Sea-View Apartment: 10 Critical Factors to Consider</div></div></a></div></section>
+    <nav class="post-pager" aria-label="Post navigation"><a class="prev" href="/blog/en/denize-yakin-ev-almak-avantajlar-dikkat-edilecekler.html"><span class="lbl">← Previous</span><span class="ttl">Buying a Home Near the Sea: Benefits and Key Things to Check First</span></a><a class="next" href="/blog/en/didim-yazlik-kira-getirisi-airbnb-potansiyeli.html"><span class="lbl">Next →</span><span class="ttl">Holiday Rental Income in Didim: Seasonal vs Annual &amp; Airbnb Potential</span></a></nav>
     <div class="cta-box"><h3>Letoon Residence</h3><p>Honest, practical guides to investing, coastal living and buying seaside property in Didim Altınkum.</p><a class="btn" href="/#contact">Get in Touch</a></div>
     <a href="/blog/en/" class="article-back"><i class="bi bi-arrow-left"></i> All articles</a>
   </main>

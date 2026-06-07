@@ -39,7 +39,7 @@
 body{background:var(--pg);color:var(--tx);font-family:'Montserrat',sans-serif;}
 a{color:var(--acc);}
 /* ---- blog nav ---- */
-.bnav{background:#ffffff;backdrop-filter:saturate(140%) blur(6px);box-shadow:0 2px 18px rgba(0,0,0,.08);padding:.55rem 0;}
+.bnav{position:fixed!important;top:0;left:0;right:0;z-index:1031;background:#ffffff!important;backdrop-filter:saturate(140%) blur(6px);box-shadow:0 2px 18px rgba(0,0,0,.08)!important;padding:.55rem 0;}
 .bnav .navbar-brand{display:flex;align-items:center;gap:.55rem;font-family:'Playfair Display',serif;font-weight:700;color:#202020;font-size:1.05rem;}
 .bnav .navbar-brand img{height:40px;border-radius:0;}
 .bnav .nav-link{color:#333333;font-weight:600;font-size:.95rem;padding:.4rem .8rem;border-radius:8px;transition:.2s;}
@@ -111,7 +111,27 @@ a{color:var(--acc);}
 .bfoot li{margin-bottom:.5rem;font-size:.92rem;}
 .bfoot .fcontact i{color:var(--acc);width:18px;}
 .bfoot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:2rem;padding-top:1.2rem;text-align:center;font-size:.85rem;color:rgba(255,255,255,.6);}
-@media(max-width:600px){.article-hero{padding:2rem 1.3rem;}}
+.hero-credit{font-size:.74rem;color:var(--txm);margin:-1.2rem 0 1.4rem;text-align:right;}
+.hero-credit a{color:var(--txm);}
+.article-backtop{display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem;padding:.42rem .95rem;border:1px solid var(--bd);border-radius:50px;color:var(--acc);font-weight:600;font-size:.85rem;text-decoration:none;transition:.2s;}
+.article-backtop:hover{background:var(--acc);color:#fff;border-color:var(--acc);}
+.article-hero{min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;background-size:cover;background-position:center;}
+.post-pager{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2.8rem 0 1rem;}
+.post-pager a{display:flex;flex-direction:column;gap:.3rem;border:1px solid var(--bd);border-radius:12px;padding:1rem 1.2rem;text-decoration:none;background:var(--card);transition:.2s;min-width:0;}
+.post-pager a:hover{border-color:var(--acc);transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,0,0,.08);}
+.post-pager .lbl{font-size:.78rem;color:var(--acc);font-weight:700;}
+.post-pager .ttl{font-family:'Playfair Display',serif;color:var(--hd);font-weight:700;font-size:.98rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.post-pager .next{text-align:right;align-items:flex-end;}
+.related{margin:3rem 0 1rem;}
+.related h3{font-family:'Playfair Display',serif;font-weight:700;font-size:1.3rem;color:var(--hd);margin-bottom:1rem;}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1rem;}
+.related-card{border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:var(--card);text-decoration:none;display:flex;flex-direction:column;transition:.2s;}
+.related-card:hover{border-color:var(--acc);transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,.08);}
+.related-card .rc-top{height:100px;background-size:cover;background-position:center;background-color:var(--card2);}
+.related-card .rc-body{padding:.8rem .9rem;}
+.related-card .rc-cat{font-size:.67rem;text-transform:uppercase;letter-spacing:.8px;color:var(--acc);font-weight:700;}
+.related-card .rc-ttl{font-family:'Playfair Display',serif;color:var(--hd);font-weight:600;font-size:.9rem;line-height:1.3;margin-top:.25rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+@media(max-width:600px){.article-hero{padding:2rem 1.3rem;min-height:230px;}.post-pager{grid-template-columns:1fr;}}
 </style>
   <script type="application/ld+json">
 {
@@ -234,11 +254,13 @@ a{color:var(--acc);}
     </div>
   </nav>
   <main class="article-wrap">
+    <a href="/blog/en/" class="article-backtop"><i class="bi bi-arrow-left"></i> All Articles</a>
     <nav class="breadcrumb-nav"><a href="/">Letoon Residence</a> / <a href="/blog/en/">Blog</a> / Holiday Rental Income in Didim: Seasonal vs Annual &amp; Airbnb Potential</nav>
-    <div class="article-hero">
+    <div class="article-hero" style="background:linear-gradient(165deg,rgba(0,0,0,.20),rgba(0,0,0,.66)),url('/blog/img/didim-yazlik-kira-getirisi-airbnb-potansiyeli.jpg') center/cover;">
       <div class="cat">Investment Guide</div>
       <h1>Holiday Rental Income in Didim: Seasonal vs Annual &amp; Airbnb Potential</h1>
     </div>
+    <p class="hero-credit">Image: Hacienda La Jacaranda · CC BY-SA 3.0 · <a href="https://commons.wikimedia.org/wiki/File:Holiday_Accomodation_in_Atenas_Costa_Rica.JPG" target="_blank" rel="noopener nofollow">Wikimedia Commons</a></p>
     <p class="article-sub">Should you let a Didim holiday home by the season or on an annual contract? We compare occupancy, gross-to-net yield and the real management burden with numbers.</p>
     <div class="article-meta">
       <span><i class="bi bi-clock"></i> 11 min read</span>
@@ -265,6 +287,8 @@ a{color:var(--acc);}
     </article>
     <div class="takeaways"><h3>Key takeaways</h3><ul><li>The seasonal (Airbnb) model&#39;s nightly unit price can be 2-3x the annual model&#39;s, but that advantage only becomes net money if high occupancy is sustained.</li><li>A well-located Didim apartment&#39;s real annual-average seasonal occupancy is usually 35-45 percent; stretching peak-season figures across the year is misleading.</li><li>In seasonal letting net income drops to 55-70 percent of gross; in the annual model 85-90 percent is retained because the cost lines are far fewer.</li><li>Professional management removes the workload but takes 20-30 percent of turnover, narrowing the net margin.</li><li>Seasonal = high potential, high effort, high variability; annual = moderate yield, low effort, high predictability.</li><li>A hybrid strategy (seasonal in summer, short-to-medium term in winter) is the practical way to optimise total net yield; always estimate returns conservatively.</li></ul></div>
     <div class="faq-wrap"><h3>Frequently Asked Questions</h3><details class="faq-item"><summary>How much rental income does a holiday home in Didim provide?</summary><div class="faq-a">A well-located holiday home can reach roughly 35,000-41,000 TL gross per month in peak season, but the average falls once spread across the year. A realistic frame puts gross annual yield at 4-7 percent of property value, with net yield landing below that depending on the model.</div></details><details class="faq-item"><summary>Is seasonal or annual letting more profitable?</summary><div class="faq-a">It depends on occupancy and effort. If high occupancy and a high nightly rate are achieved together, the seasonal model earns more; but costs cut net income to 55-70 percent and the workload is heavy. If occupancy is low or you cannot spare the time, the annual model delivers a higher and more predictable net return with less effort.</div></details><details class="faq-item"><summary>What is the real occupancy rate for seasonal letting in Didim?</summary><div class="faq-a">In peak season (July-August) occupancy can reach 85-95 percent, in the shoulder season it sits at 40-60 percent, and in winter it falls almost to zero. Averaged across the year, a well-located apartment usually settles at 35-45 percent occupancy, roughly 130-165 nights a year.</div></details><details class="faq-item"><summary>Do a pool and proximity to the sea really increase rental income?</summary><div class="faq-a">Yes, measurably. Guests specifically search booking filters for a pool and walking distance to the sea; these two features lift both occupancy and the nightly rate. That is why projects like Letoon Residence, 50 metres from the sea and with a pool, offer a stronger lettability base than an ordinary apartment.</div></details></div>
+    <section class="related"><h3>Related Articles</h3><div class="related-grid"><a class="related-card" href="/blog/en/didim-altinkum-gayrimenkul-yatirim-rehberi-2026.html"><div class="rc-top" style="background-image:linear-gradient(165deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url('/blog/img/didim-altinkum-gayrimenkul-yatirim-rehberi-2026.jpg');"></div><div class="rc-body"><div class="rc-cat">Investment Guide</div><div class="rc-ttl">Investing in Didim Altinkum Real Estate in 2026: Prices, Areas and Returns</div></div></a><a class="related-card" href="/blog/en/altinkum-didim-yasam-rehberi-plajlar-ulasim-sosyal-hayat.html"><div class="rc-top" style="background-image:linear-gradient(165deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url('/blog/img/altinkum-didim-yasam-rehberi-plajlar-ulasim-sosyal-hayat.jpg');"></div><div class="rc-body"><div class="rc-cat">Area Guide</div><div class="rc-ttl">Living in Altinkum Didim: Beaches, Transport, Social Life and Climate</div></div></a><a class="related-card" href="/blog/en/deniz-manzarali-daire-secerken-dikkat-edilecekler.html"><div class="rc-top" style="background-image:linear-gradient(165deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url('/blog/img/deniz-manzarali-daire-secerken-dikkat-edilecekler.jpg');"></div><div class="rc-body"><div class="rc-cat">Buyer Guide</div><div class="rc-ttl">Choosing a Sea-View Apartment: 10 Critical Factors to Consider</div></div></a></div></section>
+    <nav class="post-pager" aria-label="Post navigation"><a class="prev" href="/blog/en/didim-altinkum-gayrimenkul-yatirim-rehberi-2026.html"><span class="lbl">← Previous</span><span class="ttl">Investing in Didim Altinkum Real Estate in 2026: Prices, Areas and Returns</span></a><a class="next" href="/blog/en/ege-kiyilarinda-emeklilik-sahil-yasami-rehberi.html"><span class="lbl">Next →</span><span class="ttl">Retiring on the Aegean Coast: A Guide to Seaside Living in Didim Altinkum</span></a></nav>
     <div class="cta-box"><h3>Letoon Residence</h3><p>Honest, practical guides to investing, coastal living and buying seaside property in Didim Altınkum.</p><a class="btn" href="/#contact">Get in Touch</a></div>
     <a href="/blog/en/" class="article-back"><i class="bi bi-arrow-left"></i> All articles</a>
   </main>

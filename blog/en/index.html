@@ -33,7 +33,7 @@
 body{background:var(--pg);color:var(--tx);font-family:'Montserrat',sans-serif;}
 a{color:var(--acc);}
 /* ---- blog nav ---- */
-.bnav{background:#ffffff;backdrop-filter:saturate(140%) blur(6px);box-shadow:0 2px 18px rgba(0,0,0,.08);padding:.55rem 0;}
+.bnav{position:fixed!important;top:0;left:0;right:0;z-index:1031;background:#ffffff!important;backdrop-filter:saturate(140%) blur(6px);box-shadow:0 2px 18px rgba(0,0,0,.08)!important;padding:.55rem 0;}
 .bnav .navbar-brand{display:flex;align-items:center;gap:.55rem;font-family:'Playfair Display',serif;font-weight:700;color:#202020;font-size:1.05rem;}
 .bnav .navbar-brand img{height:40px;border-radius:0;}
 .bnav .nav-link{color:#333333;font-weight:600;font-size:.95rem;padding:.4rem .8rem;border-radius:8px;transition:.2s;}
@@ -105,7 +105,27 @@ a{color:var(--acc);}
 .bfoot li{margin-bottom:.5rem;font-size:.92rem;}
 .bfoot .fcontact i{color:var(--acc);width:18px;}
 .bfoot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:2rem;padding-top:1.2rem;text-align:center;font-size:.85rem;color:rgba(255,255,255,.6);}
-@media(max-width:600px){.article-hero{padding:2rem 1.3rem;}}
+.hero-credit{font-size:.74rem;color:var(--txm);margin:-1.2rem 0 1.4rem;text-align:right;}
+.hero-credit a{color:var(--txm);}
+.article-backtop{display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem;padding:.42rem .95rem;border:1px solid var(--bd);border-radius:50px;color:var(--acc);font-weight:600;font-size:.85rem;text-decoration:none;transition:.2s;}
+.article-backtop:hover{background:var(--acc);color:#fff;border-color:var(--acc);}
+.article-hero{min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;background-size:cover;background-position:center;}
+.post-pager{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2.8rem 0 1rem;}
+.post-pager a{display:flex;flex-direction:column;gap:.3rem;border:1px solid var(--bd);border-radius:12px;padding:1rem 1.2rem;text-decoration:none;background:var(--card);transition:.2s;min-width:0;}
+.post-pager a:hover{border-color:var(--acc);transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,0,0,.08);}
+.post-pager .lbl{font-size:.78rem;color:var(--acc);font-weight:700;}
+.post-pager .ttl{font-family:'Playfair Display',serif;color:var(--hd);font-weight:700;font-size:.98rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.post-pager .next{text-align:right;align-items:flex-end;}
+.related{margin:3rem 0 1rem;}
+.related h3{font-family:'Playfair Display',serif;font-weight:700;font-size:1.3rem;color:var(--hd);margin-bottom:1rem;}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1rem;}
+.related-card{border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:var(--card);text-decoration:none;display:flex;flex-direction:column;transition:.2s;}
+.related-card:hover{border-color:var(--acc);transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,.08);}
+.related-card .rc-top{height:100px;background-size:cover;background-position:center;background-color:var(--card2);}
+.related-card .rc-body{padding:.8rem .9rem;}
+.related-card .rc-cat{font-size:.67rem;text-transform:uppercase;letter-spacing:.8px;color:var(--acc);font-weight:700;}
+.related-card .rc-ttl{font-family:'Playfair Display',serif;color:var(--hd);font-weight:600;font-size:.9rem;line-height:1.3;margin-top:.25rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+@media(max-width:600px){.article-hero{padding:2rem 1.3rem;min-height:230px;}.post-pager{grid-template-columns:1fr;}}
 </style>
   <script type="application/ld+json">
 {
@@ -213,7 +233,7 @@ a{color:var(--acc);}
   </header>
   <section class="blog-grid">
       <article class="blog-card">
-        <a href="/blog/en/altinkum-didim-yasam-rehberi-plajlar-ulasim-sosyal-hayat.html" class="blog-card-top"><span class="cat">Area Guide</span></a>
+        <a href="/blog/en/altinkum-didim-yasam-rehberi-plajlar-ulasim-sosyal-hayat.html" class="blog-card-top" style="background-image:linear-gradient(160deg,rgba(0,0,0,.10),rgba(0,0,0,.55)),url('/blog/img/altinkum-didim-yasam-rehberi-plajlar-ulasim-sosyal-hayat.jpg');"><span class="cat">Area Guide</span></a>
         <div class="blog-card-body">
           <h2><a href="/blog/en/altinkum-didim-yasam-rehberi-plajlar-ulasim-sosyal-hayat.html">Living in Altinkum Didim: Beaches, Transport, Social Life and Climate</a></h2>
           <p>Living in Altinkum Didim: the beaches, airport and transport links, markets, dining, healthcare and year-round climate. Everything to know before you move.</p>
@@ -222,7 +242,7 @@ a{color:var(--acc);}
         </div>
       </article>
       <article class="blog-card">
-        <a href="/blog/en/deniz-manzarali-daire-secerken-dikkat-edilecekler.html" class="blog-card-top"><span class="cat">Buyer Guide</span></a>
+        <a href="/blog/en/deniz-manzarali-daire-secerken-dikkat-edilecekler.html" class="blog-card-top" style="background-image:linear-gradient(160deg,rgba(0,0,0,.10),rgba(0,0,0,.55)),url('/blog/img/deniz-manzarali-daire-secerken-dikkat-edilecekler.jpg');"><span class="cat">Buyer Guide</span></a>
         <div class="blog-card-body">
           <h2><a href="/blog/en/deniz-manzarali-daire-secerken-dikkat-edilecekler.html">Choosing a Sea-View Apartment: 10 Critical Factors to Consider</a></h2>
           <p>Picking a sea-view apartment? Learn the 10 critical factors: facade orientation, floor level, balcony design, guaranteed views and natural light.</p>
@@ -231,7 +251,7 @@ a{color:var(--acc);}
         </div>
       </article>
       <article class="blog-card">
-        <a href="/blog/en/denize-yakin-ev-almak-avantajlar-dikkat-edilecekler.html" class="blog-card-top"><span class="cat">Buyer Guide</span></a>
+        <a href="/blog/en/denize-yakin-ev-almak-avantajlar-dikkat-edilecekler.html" class="blog-card-top" style="background-image:linear-gradient(160deg,rgba(0,0,0,.10),rgba(0,0,0,.55)),url('/blog/img/denize-yakin-ev-almak-avantajlar-dikkat-edilecekler.jpg');"><span class="cat">Buyer Guide</span></a>
         <div class="blog-card-body">
           <h2><a href="/blog/en/denize-yakin-ev-almak-avantajlar-dikkat-edilecekler.html">Buying a Home Near the Sea: Benefits and Key Things to Check First</a></h2>
           <p>The benefits of buying a home near the sea plus what to check first: humidity, maintenance, title deeds and how distance to the shore affects value.</p>
@@ -240,7 +260,7 @@ a{color:var(--acc);}
         </div>
       </article>
       <article class="blog-card">
-        <a href="/blog/en/didim-altinkum-gayrimenkul-yatirim-rehberi-2026.html" class="blog-card-top"><span class="cat">Investment Guide</span></a>
+        <a href="/blog/en/didim-altinkum-gayrimenkul-yatirim-rehberi-2026.html" class="blog-card-top" style="background-image:linear-gradient(160deg,rgba(0,0,0,.10),rgba(0,0,0,.55)),url('/blog/img/didim-altinkum-gayrimenkul-yatirim-rehberi-2026.jpg');"><span class="cat">Investment Guide</span></a>
         <div class="blog-card-body">
           <h2><a href="/blog/en/didim-altinkum-gayrimenkul-yatirim-rehberi-2026.html">Investing in Didim Altinkum Real Estate in 2026: Prices, Areas and Returns</a></h2>
           <p>A 2026 guide to investing in Didim Altinkum property: current apartment prices, capital growth potential, rental yields and the best seaside areas to buy in.</p>
@@ -249,7 +269,7 @@ a{color:var(--acc);}
         </div>
       </article>
       <article class="blog-card">
-        <a href="/blog/en/didim-yazlik-kira-getirisi-airbnb-potansiyeli.html" class="blog-card-top"><span class="cat">Investment Guide</span></a>
+        <a href="/blog/en/didim-yazlik-kira-getirisi-airbnb-potansiyeli.html" class="blog-card-top" style="background-image:linear-gradient(160deg,rgba(0,0,0,.10),rgba(0,0,0,.55)),url('/blog/img/didim-yazlik-kira-getirisi-airbnb-potansiyeli.jpg');"><span class="cat">Investment Guide</span></a>
         <div class="blog-card-body">
           <h2><a href="/blog/en/didim-yazlik-kira-getirisi-airbnb-potansiyeli.html">Holiday Rental Income in Didim: Seasonal vs Annual &amp; Airbnb Potential</a></h2>
           <p>How much rental income can a Didim holiday home earn? Compare seasonal (Airbnb) vs annual lets, occupancy, management costs and 2026 yield expectations.</p>
@@ -258,7 +278,7 @@ a{color:var(--acc);}
         </div>
       </article>
       <article class="blog-card">
-        <a href="/blog/en/ege-kiyilarinda-emeklilik-sahil-yasami-rehberi.html" class="blog-card-top"><span class="cat">Lifestyle</span></a>
+        <a href="/blog/en/ege-kiyilarinda-emeklilik-sahil-yasami-rehberi.html" class="blog-card-top" style="background-image:linear-gradient(160deg,rgba(0,0,0,.10),rgba(0,0,0,.55)),url('/blog/img/ege-kiyilarinda-emeklilik-sahil-yasami-rehberi.jpg');"><span class="cat">Lifestyle</span></a>
         <div class="blog-card-body">
           <h2><a href="/blog/en/ege-kiyilarinda-emeklilik-sahil-yasami-rehberi.html">Retiring on the Aegean Coast: A Guide to Seaside Living in Didim Altinkum</a></h2>
           <p>A peaceful Aegean retirement: cost of living, climate, healthcare, social life and choosing the right retiree-friendly home in Didim Altinkum.</p>
@@ -267,7 +287,7 @@ a{color:var(--acc);}
         </div>
       </article>
       <article class="blog-card">
-        <a href="/blog/en/luks-rezidans-ozellikleri-havuz-guvenlik-sosyal-alanlar.html" class="blog-card-top"><span class="cat">Property Types</span></a>
+        <a href="/blog/en/luks-rezidans-ozellikleri-havuz-guvenlik-sosyal-alanlar.html" class="blog-card-top" style="background-image:linear-gradient(160deg,rgba(0,0,0,.10),rgba(0,0,0,.55)),url('/blog/img/luks-rezidans-ozellikleri-havuz-guvenlik-sosyal-alanlar.jpg');"><span class="cat">Property Types</span></a>
         <div class="blog-card-body">
           <h2><a href="/blog/en/luks-rezidans-ozellikleri-havuz-guvenlik-sosyal-alanlar.html">Features of a Luxury Residence: Pool, Security, Amenities and Architecture</a></h2>
           <p>What defines a luxury residence? Discover why pools, 24/7 security, amenities, modern architecture, wide balconies and quality interiors truly matter.</p>
@@ -276,7 +296,7 @@ a{color:var(--acc);}
         </div>
       </article>
       <article class="blog-card">
-        <a href="/blog/en/rezidans-nedir-daire-villa-farki.html" class="blog-card-top"><span class="cat">Property Types</span></a>
+        <a href="/blog/en/rezidans-nedir-daire-villa-farki.html" class="blog-card-top" style="background-image:linear-gradient(160deg,rgba(0,0,0,.10),rgba(0,0,0,.55)),url('/blog/img/rezidans-nedir-daire-villa-farki.jpg');"><span class="cat">Property Types</span></a>
         <div class="blog-card-body">
           <h2><a href="/blog/en/rezidans-nedir-daire-villa-farki.html">What Is a Residence? How It Differs From Apartments and Villas</a></h2>
           <p>What is a residence and how does it differ from a standard apartment or villa? Security, amenities, pools and the lifestyle and investment edge a residence offers.</p>
@@ -285,7 +305,7 @@ a{color:var(--acc);}
         </div>
       </article>
       <article class="blog-card">
-        <a href="/blog/en/tatil-evi-mi-yatirim-mi-sahil-konutu-karari.html" class="blog-card-top"><span class="cat">Buyer Guide</span></a>
+        <a href="/blog/en/tatil-evi-mi-yatirim-mi-sahil-konutu-karari.html" class="blog-card-top" style="background-image:linear-gradient(160deg,rgba(0,0,0,.10),rgba(0,0,0,.55)),url('/blog/img/tatil-evi-mi-yatirim-mi-sahil-konutu-karari.jpg');"><span class="cat">Buyer Guide</span></a>
         <div class="blog-card-body">
           <h2><a href="/blog/en/tatil-evi-mi-yatirim-mi-sahil-konutu-karari.html">Holiday Home or Investment? How to Decide on a Coastal Property</a></h2>
           <p>Should you buy a coastal home for holidays or investment? A decision guide on combining both goals, budget, usage and balancing personal use with returns.</p>
@@ -294,7 +314,7 @@ a{color:var(--acc);}
         </div>
       </article>
       <article class="blog-card">
-        <a href="/blog/en/yabancilara-konut-satisi-turk-vatandasligi-2026.html" class="blog-card-top"><span class="cat">Foreign Buyer Guide</span></a>
+        <a href="/blog/en/yabancilara-konut-satisi-turk-vatandasligi-2026.html" class="blog-card-top" style="background-image:linear-gradient(160deg,rgba(0,0,0,.10),rgba(0,0,0,.55)),url('/blog/img/yabancilara-konut-satisi-turk-vatandasligi-2026.jpg');"><span class="cat">Foreign Buyer Guide</span></a>
         <div class="blog-card-body">
           <h2><a href="/blog/en/yabancilara-konut-satisi-turk-vatandasligi-2026.html">Buying Property in Turkey as a Foreigner &amp; Citizenship by Investment 2026</a></h2>
           <p>How foreigners buy property in Turkey: the 400,000 USD citizenship threshold, VAT exemption, title-deed steps and a practical buyer roadmap for Didim Altinkum.</p>

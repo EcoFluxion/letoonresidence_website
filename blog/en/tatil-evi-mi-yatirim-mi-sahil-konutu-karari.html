@@ -39,7 +39,7 @@
 body{background:var(--pg);color:var(--tx);font-family:'Montserrat',sans-serif;}
 a{color:var(--acc);}
 /* ---- blog nav ---- */
-.bnav{background:#ffffff;backdrop-filter:saturate(140%) blur(6px);box-shadow:0 2px 18px rgba(0,0,0,.08);padding:.55rem 0;}
+.bnav{position:fixed!important;top:0;left:0;right:0;z-index:1031;background:#ffffff!important;backdrop-filter:saturate(140%) blur(6px);box-shadow:0 2px 18px rgba(0,0,0,.08)!important;padding:.55rem 0;}
 .bnav .navbar-brand{display:flex;align-items:center;gap:.55rem;font-family:'Playfair Display',serif;font-weight:700;color:#202020;font-size:1.05rem;}
 .bnav .navbar-brand img{height:40px;border-radius:0;}
 .bnav .nav-link{color:#333333;font-weight:600;font-size:.95rem;padding:.4rem .8rem;border-radius:8px;transition:.2s;}
@@ -111,7 +111,27 @@ a{color:var(--acc);}
 .bfoot li{margin-bottom:.5rem;font-size:.92rem;}
 .bfoot .fcontact i{color:var(--acc);width:18px;}
 .bfoot-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:2rem;padding-top:1.2rem;text-align:center;font-size:.85rem;color:rgba(255,255,255,.6);}
-@media(max-width:600px){.article-hero{padding:2rem 1.3rem;}}
+.hero-credit{font-size:.74rem;color:var(--txm);margin:-1.2rem 0 1.4rem;text-align:right;}
+.hero-credit a{color:var(--txm);}
+.article-backtop{display:inline-flex;align-items:center;gap:.4rem;margin-bottom:1rem;padding:.42rem .95rem;border:1px solid var(--bd);border-radius:50px;color:var(--acc);font-weight:600;font-size:.85rem;text-decoration:none;transition:.2s;}
+.article-backtop:hover{background:var(--acc);color:#fff;border-color:var(--acc);}
+.article-hero{min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;background-size:cover;background-position:center;}
+.post-pager{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2.8rem 0 1rem;}
+.post-pager a{display:flex;flex-direction:column;gap:.3rem;border:1px solid var(--bd);border-radius:12px;padding:1rem 1.2rem;text-decoration:none;background:var(--card);transition:.2s;min-width:0;}
+.post-pager a:hover{border-color:var(--acc);transform:translateY(-3px);box-shadow:0 12px 26px rgba(0,0,0,.08);}
+.post-pager .lbl{font-size:.78rem;color:var(--acc);font-weight:700;}
+.post-pager .ttl{font-family:'Playfair Display',serif;color:var(--hd);font-weight:700;font-size:.98rem;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.post-pager .next{text-align:right;align-items:flex-end;}
+.related{margin:3rem 0 1rem;}
+.related h3{font-family:'Playfair Display',serif;font-weight:700;font-size:1.3rem;color:var(--hd);margin-bottom:1rem;}
+.related-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1rem;}
+.related-card{border:1px solid var(--bd);border-radius:12px;overflow:hidden;background:var(--card);text-decoration:none;display:flex;flex-direction:column;transition:.2s;}
+.related-card:hover{border-color:var(--acc);transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,.08);}
+.related-card .rc-top{height:100px;background-size:cover;background-position:center;background-color:var(--card2);}
+.related-card .rc-body{padding:.8rem .9rem;}
+.related-card .rc-cat{font-size:.67rem;text-transform:uppercase;letter-spacing:.8px;color:var(--acc);font-weight:700;}
+.related-card .rc-ttl{font-family:'Playfair Display',serif;color:var(--hd);font-weight:600;font-size:.9rem;line-height:1.3;margin-top:.25rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+@media(max-width:600px){.article-hero{padding:2rem 1.3rem;min-height:230px;}.post-pager{grid-template-columns:1fr;}}
 </style>
   <script type="application/ld+json">
 {
@@ -234,11 +254,13 @@ a{color:var(--acc);}
     </div>
   </nav>
   <main class="article-wrap">
+    <a href="/blog/en/" class="article-backtop"><i class="bi bi-arrow-left"></i> All Articles</a>
     <nav class="breadcrumb-nav"><a href="/">Letoon Residence</a> / <a href="/blog/en/">Blog</a> / Holiday Home or Investment? How to Decide on a Coastal Property</nav>
-    <div class="article-hero">
+    <div class="article-hero" style="background:linear-gradient(165deg,rgba(0,0,0,.20),rgba(0,0,0,.66)),url('/blog/img/tatil-evi-mi-yatirim-mi-sahil-konutu-karari.jpg') center/cover;">
       <div class="cat">Buyer Guide</div>
       <h1>Holiday Home or Investment? How to Decide on a Coastal Property</h1>
     </div>
+    <p class="hero-credit">Image: HALUK COMERTEL · CC BY 3.0 · <a href="https://commons.wikimedia.org/wiki/File:48650_Akyaka-Ula-Mu%C4%9Fla,_Turkey_-_panoramio_(16).jpg" target="_blank" rel="noopener nofollow">Wikimedia Commons</a></p>
     <p class="article-sub">Behind the dream of a home by the sea there are usually two distinct intentions: peaceful holidays and a sound investment. This guide helps you clarify which one is driving you, and shows how to combine the two wisely.</p>
     <div class="article-meta">
       <span><i class="bi bi-clock"></i> 9 min read</span>
@@ -265,6 +287,8 @@ a{color:var(--acc);}
     </article>
     <div class="takeaways"><h3>Key takeaways</h3><ul><li>The decision is a question of intent, not budget; first admit honestly which motive is dominant.</li><li>Treat holiday value as a financial item too: multiply the nights you use annually by the cost of quality lodging.</li><li>Read the investment side on three axes — net rental yield, appreciation and liquidity — and stress-test your assumptions.</li><li>Usage frequency is a compass: 8+ weeks a year leans holiday, 2-8 weeks is use-and-earn, under 2 weeks is effectively investment.</li><li>The right location and amenities (sea proximity, pool, security, landscaping) raise holiday comfort and rental demand at once.</li><li>Most common mistakes: emotional peak-season decisions, ignoring hidden costs and liquidity, and deciding alone in a hurry.</li></ul></div>
     <div class="faq-wrap"><h3>Frequently Asked Questions</h3><details class="faq-item"><summary>Does it make sense to use a coastal home for both holidays and investment?</summary><div class="faq-a">Yes, with the right location and property type it makes a lot of sense. You use the home yourself during the weeks of the year that matter most to you, and generate income through short or medium-term letting the rest of the time. For this to work the home should be easy to lock up and leave, low-maintenance and suited to professional management, and it should have features such as sea proximity, a pool and security that raise both your comfort and rental demand.</div></details><details class="faq-item"><summary>How do I decide whether it should be a holiday home or an investment?</summary><div class="faq-a">The most practical criterion is usage frequency. If you will use it more than 8 weeks a year, it is mainly a holiday home and comfort and personal taste take priority. If you will use it 2-8 weeks a year, you are in the classic use-and-earn profile. If less than 2 weeks a year, the decision is effectively an investment, where yield, liquidity and ease of management come first. Add your emotional motivation and time horizon to this and the picture becomes clear.</div></details><details class="faq-item"><summary>Beyond the purchase price, what costs should I account for when buying a second home?</summary><div class="faq-a">Think in terms of total cost of ownership. On top of the purchase price come title-deed fees, any financing cost, annual property tax, community service charges, insurance, regular maintenance and furnishing costs. If you plan to let it, also factor in vacant periods and management and cleaning fees. Breaking these items out for the first year and subsequent years, and stress-testing them with a pessimistic scenario, leads to a realistic decision.</div></details><details class="faq-item"><summary>Why is Didim Altinkum favoured for combining holiday use and investment?</summary><div class="faq-a">Didim Altinkum offers a safe holiday environment for families with its long, shallow beaches, while being a market recognised by both domestic and foreign demand for years supports letting and resale liquidity. Sea-close, amenitised homes here deliver comfort during your own holidays and carry premium value in a tenant&#39;s eyes. For example, pool-equipped, sea-view projects such as Letoon Residence, just 50 metres from the sea, speak precisely to this use-and-earn profile.</div></details></div>
+    <section class="related"><h3>Related Articles</h3><div class="related-grid"><a class="related-card" href="/blog/en/deniz-manzarali-daire-secerken-dikkat-edilecekler.html"><div class="rc-top" style="background-image:linear-gradient(165deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url('/blog/img/deniz-manzarali-daire-secerken-dikkat-edilecekler.jpg');"></div><div class="rc-body"><div class="rc-cat">Buyer Guide</div><div class="rc-ttl">Choosing a Sea-View Apartment: 10 Critical Factors to Consider</div></div></a><a class="related-card" href="/blog/en/denize-yakin-ev-almak-avantajlar-dikkat-edilecekler.html"><div class="rc-top" style="background-image:linear-gradient(165deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url('/blog/img/denize-yakin-ev-almak-avantajlar-dikkat-edilecekler.jpg');"></div><div class="rc-body"><div class="rc-cat">Buyer Guide</div><div class="rc-ttl">Buying a Home Near the Sea: Benefits and Key Things to Check First</div></div></a><a class="related-card" href="/blog/en/altinkum-didim-yasam-rehberi-plajlar-ulasim-sosyal-hayat.html"><div class="rc-top" style="background-image:linear-gradient(165deg,rgba(0,0,0,.12),rgba(0,0,0,.5)),url('/blog/img/altinkum-didim-yasam-rehberi-plajlar-ulasim-sosyal-hayat.jpg');"></div><div class="rc-body"><div class="rc-cat">Area Guide</div><div class="rc-ttl">Living in Altinkum Didim: Beaches, Transport, Social Life and Climate</div></div></a></div></section>
+    <nav class="post-pager" aria-label="Post navigation"><a class="prev" href="/blog/en/rezidans-nedir-daire-villa-farki.html"><span class="lbl">← Previous</span><span class="ttl">What Is a Residence? How It Differs From Apartments and Villas</span></a><a class="next" href="/blog/en/yabancilara-konut-satisi-turk-vatandasligi-2026.html"><span class="lbl">Next →</span><span class="ttl">Buying Property in Turkey as a Foreigner &amp; Citizenship by Investment 2026</span></a></nav>
     <div class="cta-box"><h3>Letoon Residence</h3><p>Honest, practical guides to investing, coastal living and buying seaside property in Didim Altınkum.</p><a class="btn" href="/#contact">Get in Touch</a></div>
     <a href="/blog/en/" class="article-back"><i class="bi bi-arrow-left"></i> All articles</a>
   </main>
